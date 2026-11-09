@@ -1,0 +1,343 @@
+export type TeamRegion = "MPL ID" | "MPL PH" | "MPL MY";
+export type TeamTier = "premium" | "free";
+
+export interface TeamLogoItem {
+  id: string;
+  name: string;
+  tag: string;
+  region: TeamRegion;
+  tier: TeamTier;
+  price_istars: number; // 100 for premium, 0 for free
+  price_uzs: number;    // 5,000 UZS for premium, 0 for free
+  primaryColor: string;
+  secondaryColor: string;
+  badgeText: string;
+  description: string;
+}
+
+export const CUSTOM_LOGO_FEE_ISTARS = 140;
+export const CUSTOM_LOGO_FEE_UZS = 7000;
+export const PREMIUM_LOGO_FEE_ISTARS = 100;
+export const PREMIUM_LOGO_FEE_UZS = 5000;
+
+export const TEAM_LOGOS: TeamLogoItem[] = [
+  // ==========================================
+  // TIER 1: PREMIUM (100 IStars / 5,000 UZS)
+  // ==========================================
+  // MPL Indonesia (Elite)
+  {
+    id: "fnatic_onic",
+    name: "Fnatic ONIC",
+    tag: "FNOC",
+    region: "MPL ID",
+    tier: "premium",
+    price_istars: PREMIUM_LOGO_FEE_ISTARS,
+    price_uzs: PREMIUM_LOGO_FEE_UZS,
+    primaryColor: "#F59E0B",
+    secondaryColor: "#18181B",
+    badgeText: "⚡ ONIC",
+    description: "MSC & MPL ID Multi-Champions — Yellow Hedgehogs",
+  },
+  {
+    id: "rrq",
+    name: "Rex Regum Qeon",
+    tag: "RRQ",
+    region: "MPL ID",
+    tier: "premium",
+    price_istars: PREMIUM_LOGO_FEE_ISTARS,
+    price_uzs: PREMIUM_LOGO_FEE_UZS,
+    primaryColor: "#FB923C",
+    secondaryColor: "#0F172A",
+    badgeText: "👑 RRQ",
+    description: "King of Kings — Most followed esports franchise",
+  },
+  {
+    id: "evos",
+    name: "EVOS Esports",
+    tag: "EVOS",
+    region: "MPL ID",
+    tier: "premium",
+    price_istars: PREMIUM_LOGO_FEE_ISTARS,
+    price_uzs: PREMIUM_LOGO_FEE_UZS,
+    primaryColor: "#3B82F6",
+    secondaryColor: "#1E293B",
+    badgeText: "🐅 EVOS",
+    description: "M1 World Champions — White Tigers of ID",
+  },
+  {
+    id: "team_liquid_id",
+    name: "Team Liquid ID",
+    tag: "TLID",
+    region: "MPL ID",
+    tier: "premium",
+    price_istars: PREMIUM_LOGO_FEE_ISTARS,
+    price_uzs: PREMIUM_LOGO_FEE_UZS,
+    primaryColor: "#0284C7",
+    secondaryColor: "#0F172A",
+    badgeText: "🐎 TLID",
+    description: "MPL Indonesia Season 14 Champions",
+  },
+  {
+    id: "bigetron",
+    name: "Bigetron Vitality",
+    tag: "BTR",
+    region: "MPL ID",
+    tier: "premium",
+    price_istars: PREMIUM_LOGO_FEE_ISTARS,
+    price_uzs: PREMIUM_LOGO_FEE_UZS,
+    primaryColor: "#EF4444",
+    secondaryColor: "#18181B",
+    badgeText: "🤖 BTR",
+    description: "Red Villains & Dominant Regular Season Giant",
+  },
+  {
+    id: "alter_ego",
+    name: "Alter Ego",
+    tag: "AE",
+    region: "MPL ID",
+    tier: "premium",
+    price_istars: PREMIUM_LOGO_FEE_ISTARS,
+    price_uzs: PREMIUM_LOGO_FEE_UZS,
+    primaryColor: "#DC2626",
+    secondaryColor: "#111827",
+    badgeText: "🎭 AE",
+    description: "Dark Horse of MPL ID — Champions of MPLI",
+  },
+
+  // MPL Philippines (Elite)
+  {
+    id: "team_liquid_ph",
+    name: "Team Liquid PH",
+    tag: "TLPH",
+    region: "MPL PH",
+    tier: "premium",
+    price_istars: PREMIUM_LOGO_FEE_ISTARS,
+    price_uzs: PREMIUM_LOGO_FEE_UZS,
+    primaryColor: "#0EA5E9",
+    secondaryColor: "#0369A1",
+    badgeText: "🌊 TLPH",
+    description: "M4 World Champions ECHO & MPL PH Dominators",
+  },
+  {
+    id: "ap_bren",
+    name: "Falcons AP.Bren",
+    tag: "FCAP",
+    region: "MPL PH",
+    tier: "premium",
+    price_istars: PREMIUM_LOGO_FEE_ISTARS,
+    price_uzs: PREMIUM_LOGO_FEE_UZS,
+    primaryColor: "#EAB308",
+    secondaryColor: "#1C1917",
+    badgeText: "🏆 BREN",
+    description: "M2 & M5 Two-Time World Champions",
+  },
+  {
+    id: "onic_ph",
+    name: "ONIC Philippines",
+    tag: "ONIC PH",
+    region: "MPL PH",
+    tier: "premium",
+    price_istars: PREMIUM_LOGO_FEE_ISTARS,
+    price_uzs: PREMIUM_LOGO_FEE_UZS,
+    primaryColor: "#FBBF24",
+    secondaryColor: "#1F2937",
+    badgeText: "⚡ ONIC PH",
+    description: "MPL Philippines Grand Finalists & Yellow Force",
+  },
+  {
+    id: "aurora_ph",
+    name: "Aurora Gaming PH",
+    tag: "RORA",
+    region: "MPL PH",
+    tier: "premium",
+    price_istars: PREMIUM_LOGO_FEE_ISTARS,
+    price_uzs: PREMIUM_LOGO_FEE_UZS,
+    primaryColor: "#8B5CF6",
+    secondaryColor: "#2E1065",
+    badgeText: "🌌 RORA",
+    description: "Northern Lights Superteam with M3 Core Stars",
+  },
+  {
+    id: "team_falcons",
+    name: "Team Falcons",
+    tag: "FLCN",
+    region: "MPL PH",
+    tier: "premium",
+    price_istars: PREMIUM_LOGO_FEE_ISTARS,
+    price_uzs: PREMIUM_LOGO_FEE_UZS,
+    primaryColor: "#10B981",
+    secondaryColor: "#064E3B",
+    badgeText: "🦅 FLCN",
+    description: "Esports World Cup Global Powerhouse",
+  },
+  {
+    id: "smart_omega",
+    name: "Smart Omega",
+    tag: "OMG",
+    region: "MPL PH",
+    tier: "premium",
+    price_istars: PREMIUM_LOGO_FEE_ISTARS,
+    price_uzs: PREMIUM_LOGO_FEE_UZS,
+    primaryColor: "#38BDF8",
+    secondaryColor: "#082F49",
+    badgeText: "🛡️ OMG",
+    description: "Barangay Omega — The Comeback Kings of PH",
+  },
+
+  // MPL Malaysia (Elite)
+  {
+    id: "srg",
+    name: "Selangor Red Giants",
+    tag: "SRG",
+    region: "MPL MY",
+    tier: "premium",
+    price_istars: PREMIUM_LOGO_FEE_ISTARS,
+    price_uzs: PREMIUM_LOGO_FEE_UZS,
+    primaryColor: "#E11D48",
+    secondaryColor: "#881337",
+    badgeText: "🔴 SRG",
+    description: "MSC 2024 Undefeated World Champions",
+  },
+
+  // ==========================================
+  // TIER 2: FREE (0 IStars / 0 UZS)
+  // ==========================================
+  // MPL Indonesia (Free Standard)
+  {
+    id: "navi",
+    name: "NAVI (Natus Vincere)",
+    tag: "NAVI",
+    region: "MPL ID",
+    tier: "free",
+    price_istars: 0,
+    price_uzs: 0,
+    primaryColor: "#EAB308",
+    secondaryColor: "#18181B",
+    badgeText: "⭐ NAVI",
+    description: "Born to Win — Legendary Esports Organization",
+  },
+  {
+    id: "geek_fam",
+    name: "Geek Fam",
+    tag: "GEEK",
+    region: "MPL ID",
+    tier: "free",
+    price_istars: 0,
+    price_uzs: 0,
+    primaryColor: "#EF4444",
+    secondaryColor: "#27272A",
+    badgeText: "🕶️ GEEK",
+    description: "The Fam — King Slayers of Indonesia",
+  },
+  {
+    id: "dewa_united",
+    name: "DEWA United",
+    tag: "DEWA",
+    region: "MPL ID",
+    tier: "free",
+    price_istars: 0,
+    price_uzs: 0,
+    primaryColor: "#F59E0B",
+    secondaryColor: "#3F3F46",
+    badgeText: "🏛️ DEWA",
+    description: "Anak Dewa — Modern Rising Force in ID",
+  },
+
+  // MPL Philippines (Free Standard)
+  {
+    id: "tnc",
+    name: "TNC Pro Team",
+    tag: "TNC",
+    region: "MPL PH",
+    tier: "free",
+    price_istars: 0,
+    price_uzs: 0,
+    primaryColor: "#F97316",
+    secondaryColor: "#1C1917",
+    badgeText: "🔥 TNC",
+    description: "Phoenix Rising — Resilient PH Esports Squad",
+  },
+  {
+    id: "twisted_minds",
+    name: "Twisted Minds PH",
+    tag: "TM",
+    region: "MPL PH",
+    tier: "free",
+    price_istars: 0,
+    price_uzs: 0,
+    primaryColor: "#A855F7",
+    secondaryColor: "#3B0764",
+    badgeText: "🧠 TM",
+    description: "Mind Gamers — Tactical PH Contender",
+  },
+
+  // MPL Malaysia (Free Standard)
+  {
+    id: "team_vamos",
+    name: "Team Vamos",
+    tag: "VMS",
+    region: "MPL MY",
+    tier: "free",
+    price_istars: 0,
+    price_uzs: 0,
+    primaryColor: "#06B6D4",
+    secondaryColor: "#164E63",
+    badgeText: "⚔️ VMS",
+    description: "Malaysian Contenders featuring Veteran Stars",
+  },
+  {
+    id: "team_rey",
+    name: "Team Rey",
+    tag: "REY",
+    region: "MPL MY",
+    tier: "free",
+    price_istars: 0,
+    price_uzs: 0,
+    primaryColor: "#60A5FA",
+    secondaryColor: "#1E3A8A",
+    badgeText: "💎 REY",
+    description: "Rey Esports — Malaysian Challenger League",
+  },
+  {
+    id: "invictus_gaming",
+    name: "Invictus Gaming",
+    tag: "IG",
+    region: "MPL MY",
+    tier: "free",
+    price_istars: 0,
+    price_uzs: 0,
+    primaryColor: "#94A3B8",
+    secondaryColor: "#0F172A",
+    badgeText: "🛡️ iG",
+    description: "Invictus Gaming MLBB Expansion",
+  },
+  {
+    id: "team_flash",
+    name: "Team Flash",
+    tag: "FL",
+    region: "MPL MY",
+    tier: "free",
+    price_istars: 0,
+    price_uzs: 0,
+    primaryColor: "#F97316",
+    secondaryColor: "#7C2D12",
+    badgeText: "⚡ FL",
+    description: "Flash Speed — Southeast Asian Heavyweight",
+  },
+  {
+    id: "ax_esports",
+    name: "AX Esports",
+    tag: "AX",
+    region: "MPL MY",
+    tier: "free",
+    price_istars: 0,
+    price_uzs: 0,
+    primaryColor: "#10B981",
+    secondaryColor: "#064E3B",
+    badgeText: "🏹 AX",
+    description: "AX Warriors — Rising Malaysian Power",
+  },
+];
+
+export const REGIONS: TeamRegion[] = ["MPL ID", "MPL PH", "MPL MY"];
+

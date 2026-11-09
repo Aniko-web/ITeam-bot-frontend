@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  # ----------------------------------------------------------------------------
+  # Next.js Telegram Mini App (Server 1)
+  # ----------------------------------------------------------------------------
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-http://localhost:8000/api/v1}
+    container_name: iteam_frontend
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+
