@@ -105,6 +105,9 @@ export const RankBadge: React.FC<RankBadgeProps> = ({
         <img
           src={config.icon}
           alt={config.label}
+          onError={(e) => {
+            (e.currentTarget as HTMLElement).style.display = "none";
+          }}
           className={`${iconSizes[size]} object-contain shrink-0`}
         />
       )}
