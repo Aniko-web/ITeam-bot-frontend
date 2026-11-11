@@ -48,7 +48,14 @@ export const BottomNav: React.FC = () => {
         aria-label="Bottom Navigation"
         className="pointer-events-auto w-full max-w-md px-3.5 mb-3"
       >
-        <div className="relative bg-[#111722]/95 backdrop-blur-md border border-white/10 rounded-full shadow-[0_12px_36px_rgba(0,0,0,0.65)] p-1.5 flex items-center justify-between">
+        {/* Liquid Glass Floating Dock with Specular Chromatic Rim */}
+        <div className="relative liquid-glass-dock rounded-[26px] p-1.5 flex items-center justify-between overflow-hidden">
+          {/* Chromatic Liquid Edge Glow */}
+          <div className="liquid-gradient-rim" />
+
+          {/* Ambient fluid glow underneath dock */}
+          <div className="absolute -bottom-6 left-1/4 right-1/4 h-8 bg-cyan-500/20 blur-xl pointer-events-none" />
+
           {navItems.map((item) => {
             const isActive = item.match(pathname);
             const Icon = item.icon;
@@ -58,31 +65,36 @@ export const BottomNav: React.FC = () => {
                 key={item.id}
                 href={item.href}
                 onClick={() => triggerHaptic("light")}
-                className={`relative flex-1 flex flex-col items-center justify-center py-2 px-1 rounded-full transition-all duration-200 group ${
+                className={`relative flex-1 flex flex-col items-center justify-center py-2 px-1 rounded-[20px] transition-all duration-300 group ${
                   isActive
-                    ? "bg-[#1A2338] text-white border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]"
-                    : "text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]"
+                    ? "liquid-pill-active text-white scale-[1.02]"
+                    : "text-slate-400 hover:text-slate-200 hover:bg-white/[0.04] active:scale-95"
                 }`}
               >
+                {/* Active Fluid Specular Sheen */}
+                {isActive && (
+                  <span className="absolute inset-x-2 top-0.5 h-[1px] bg-gradient-to-r from-transparent via-white/70 to-transparent pointer-events-none" />
+                )}
+
                 <div
                   className={`relative transition-transform duration-200 ${
-                    isActive ? "scale-105" : "group-hover:scale-105"
+                    isActive ? "scale-110" : "group-hover:scale-105"
                   }`}
                 >
                   <Icon
-                    className={`w-[20px] h-[20px] ${
+                    className={`w-[20px] h-[20px] transition-colors duration-200 ${
                       isActive
-                        ? "text-white stroke-[2.4] drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
+                        ? "text-cyan-300 stroke-[2.4] drop-shadow-[0_0_8px_rgba(56,189,248,0.7)]"
                         : "stroke-[1.8]"
                     }`}
                   />
                   {isActive && (
-                    <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-amber-400 rounded-full shadow-[0_0_6px_rgba(251,191,36,0.8)]" />
+                    <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 bg-cyan-400 rounded-full shadow-[0_0_8px_rgba(56,189,248,0.9)] animate-pulse" />
                   )}
                 </div>
                 <span
-                  className={`text-[10px] mt-1 tracking-tight font-medium truncate max-w-[80px] leading-tight ${
-                    isActive ? "text-white font-semibold" : "text-slate-400"
+                  className={`text-[10px] mt-1 tracking-tight font-medium truncate max-w-[80px] leading-tight transition-colors ${
+                    isActive ? "text-cyan-100 font-bold drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]" : "text-slate-400"
                   }`}
                 >
                   {item.label}

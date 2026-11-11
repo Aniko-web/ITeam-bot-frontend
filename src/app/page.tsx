@@ -77,7 +77,7 @@ export default function HomePage() {
       {/* 1. Header with IStars Balance Capsule & Profile */}
       <Header user={profile} onBalanceUpdate={handleBalanceUpdate} />
 
-      <main className="px-4 flex flex-col gap-4 max-w-md mx-auto w-full">
+      <main className="px-4 flex flex-col gap-4 max-w-md mx-auto w-full pb-24">
         {/* 2. Promotional Banner Carousel (Playdom + IStars recharge) */}
         <BannerCarousel
           onOpenTopup={() => setShowTopupModal(true)}
@@ -86,10 +86,10 @@ export default function HomePage() {
 
         {/* 3. Player Quick Status & LFG Status Pill */}
         {profile && (
-          <div className="bg-[#111622] rounded-2xl p-3.5 border border-white/5 relative overflow-hidden flex flex-col gap-3 shadow-sm">
+          <div className="neumo-card p-4 relative overflow-hidden flex flex-col gap-3.5">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-mono text-slate-400">ID: {profile.mlbb_id} ({profile.server_id})</span>
+                <span className="text-xs font-mono text-cyan-300 font-semibold">ID: {profile.mlbb_id} ({profile.server_id})</span>
                 <span className="text-slate-600">•</span>
                 <span className="text-xs text-slate-300 font-medium">{profile.playtime_schedule}</span>
               </div>
@@ -98,10 +98,10 @@ export default function HomePage() {
               <button
                 type="button"
                 onClick={handleToggleLFG}
-                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold transition-all border cursor-pointer ${
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold transition-all border cursor-pointer ${
                   profile.is_lfg_active
-                    ? "bg-emerald-500/15 border-emerald-500/40 text-emerald-300"
-                    : "bg-[#182030] border-white/10 text-slate-400"
+                    ? "liquid-glass text-emerald-300 border-emerald-500/40 shadow-[0_0_12px_rgba(16,185,129,0.3)]"
+                    : "neumo-btn border-white/5 text-slate-400"
                 }`}
               >
                 <Radio
@@ -112,7 +112,7 @@ export default function HomePage() {
             </div>
 
             {/* Main Roles & Karma Bar */}
-            <div className="pt-2 border-t border-white/5 flex items-center justify-between">
+            <div className="pt-2.5 border-t border-white/[0.06] flex items-center justify-between">
               <div className="flex items-center gap-1.5 flex-wrap">
                 {profile.main_roles.map((r) => (
                   <RoleBadge key={r} role={r} size="sm" />
@@ -122,7 +122,7 @@ export default function HomePage() {
               <Link
                 href="/karma"
                 onClick={() => triggerHaptic("light")}
-                className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#182030] border border-white/10 hover:border-white/20 transition-colors"
+                className="flex items-center gap-1.5 px-2.5 py-1 rounded-full neumo-btn hover:brightness-110 transition-colors"
               >
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                 <span className="text-[11px] font-mono font-bold text-white">
@@ -136,16 +136,16 @@ export default function HomePage() {
         {/* 4. Quick Match (LFG) Lobby Stream */}
         <QuickMatchList currentUser={profile} />
 
-        {/* 5. Modern Matte Core Action Grid */}
-        <div className="grid grid-cols-2 gap-2.5">
+        {/* 5. Tactile Neumorphic Core Action Grid */}
+        <div className="grid grid-cols-2 gap-3">
           {/* Scrim Finder */}
           <Link
             href="/scrims"
             onClick={() => triggerHaptic("light")}
-            className="bg-[#111622] hover:bg-[#141B2A] border border-white/5 hover:border-white/15 p-3.5 rounded-2xl flex flex-col justify-between transition-all group shadow-sm"
+            className="neumo-card p-3.5 rounded-2xl flex flex-col justify-between transition-all group active:scale-[0.98]"
           >
-            <div className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
-              <Swords className="w-4 h-4 text-rose-400" />
+            <div className="w-9 h-9 rounded-xl neumo-inset flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+              <Swords className="w-4 h-4 text-rose-400 drop-shadow-[0_0_6px_rgba(244,63,94,0.5)]" />
             </div>
             <div>
               <h3 className="font-bold text-white text-xs">Scrim Finder</h3>
@@ -163,10 +163,10 @@ export default function HomePage() {
           <Link
             href="/teams"
             onClick={() => triggerHaptic("light")}
-            className="bg-[#111622] hover:bg-[#141B2A] border border-white/5 hover:border-white/15 p-3.5 rounded-2xl flex flex-col justify-between transition-all group shadow-sm"
+            className="neumo-card p-3.5 rounded-2xl flex flex-col justify-between transition-all group active:scale-[0.98]"
           >
-            <div className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
-              <Shield className="w-4 h-4 text-purple-400" />
+            <div className="w-9 h-9 rounded-xl neumo-inset flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+              <Shield className="w-4 h-4 text-purple-400 drop-shadow-[0_0_6px_rgba(168,85,247,0.5)]" />
             </div>
             <div>
               <h3 className="font-bold text-white text-xs">Jamoalar (Teams)</h3>
@@ -184,10 +184,10 @@ export default function HomePage() {
           <Link
             href="/pvp/lobby"
             onClick={() => triggerHaptic("light")}
-            className="bg-[#111622] hover:bg-[#141B2A] border border-white/5 hover:border-white/15 p-3.5 rounded-2xl flex flex-col justify-between transition-all group shadow-sm"
+            className="neumo-card p-3.5 rounded-2xl flex flex-col justify-between transition-all group active:scale-[0.98]"
           >
-            <div className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
-              <Flame className="w-4 h-4 text-amber-400" />
+            <div className="w-9 h-9 rounded-xl neumo-inset flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+              <Flame className="w-4 h-4 text-amber-400 drop-shadow-[0_0_6px_rgba(251,191,36,0.5)]" />
             </div>
             <div>
               <h3 className="font-bold text-white text-xs">5v5 Custom PvP</h3>
@@ -208,10 +208,10 @@ export default function HomePage() {
               triggerHaptic("medium");
               setShowTopupModal(true);
             }}
-            className="bg-[#111622] hover:bg-[#141B2A] border border-white/5 hover:border-white/15 p-3.5 rounded-2xl flex flex-col justify-between transition-all text-left group shadow-sm cursor-pointer"
+            className="neumo-card p-3.5 rounded-2xl flex flex-col justify-between transition-all text-left group active:scale-[0.98] cursor-pointer"
           >
-            <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
-              <Trophy className="w-4 h-4 text-amber-400" />
+            <div className="w-9 h-9 rounded-xl neumo-inset flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
+              <Trophy className="w-4 h-4 text-amber-400 drop-shadow-[0_0_6px_rgba(251,191,36,0.5)]" />
             </div>
             <div>
               <h3 className="font-bold text-white text-xs">Playdom Top-up</h3>

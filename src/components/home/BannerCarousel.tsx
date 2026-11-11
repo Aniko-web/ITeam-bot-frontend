@@ -119,10 +119,11 @@ export const BannerCarousel: React.FC<BannerCarouselProps> = ({ onOpenTopup, use
         onTouchStart={onTouchStartHandler}
         onTouchMove={onTouchMoveHandler}
         onTouchEnd={onTouchEndHandler}
-        className={`relative w-full rounded-2xl p-4 bg-gradient-to-br ${currentBanner.bgGradient} border border-white/10 shadow-lg overflow-hidden transition-all duration-300 min-h-[142px] flex flex-col justify-between`}
+        className={`relative w-full rounded-2xl p-4 neumo-card-raised overflow-hidden transition-all duration-300 min-h-[142px] flex flex-col justify-between group`}
       >
-        {/* Subtle Matte Background Ambient Shapes */}
-        <div className="absolute top-0 right-0 w-36 h-36 bg-white/[0.03] rounded-full blur-2xl -mr-8 -mt-8 pointer-events-none" />
+        {/* Specular Liquid Top Light */}
+        <div className="absolute top-0 left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
+        <div className="absolute top-0 right-0 w-36 h-36 bg-cyan-500/[0.05] rounded-full blur-2xl -mr-8 -mt-8 pointer-events-none" />
 
         {/* Top Tag & Decorative Icon */}
         <div className="flex items-start justify-between relative z-10">
@@ -151,10 +152,10 @@ export const BannerCarousel: React.FC<BannerCarouselProps> = ({ onOpenTopup, use
           <button
             type="button"
             onClick={currentBanner.action}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-white/10 hover:bg-white/15 px-3 py-1.5 rounded-xl transition-all active:scale-95 border border-white/10 cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-white liquid-glass hover:brightness-110 px-3.5 py-1.5 rounded-xl transition-all active:scale-95 cursor-pointer shadow-sm"
           >
             <span>{currentBanner.actionText}</span>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
+            <ChevronRight className="w-3.5 h-3.5 text-cyan-300" />
           </button>
 
           <span className="text-[10px] text-slate-500 font-mono">

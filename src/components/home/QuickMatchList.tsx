@@ -125,15 +125,15 @@ export const QuickMatchList: React.FC<QuickMatchListProps> = ({ currentUser }) =
           return (
             <div
               key={lobby.id}
-              className="bg-[#111622] hover:bg-[#141B2A] border border-white/5 hover:border-white/15 rounded-2xl p-3 transition-all flex items-center justify-between gap-3 shadow-sm group"
+              className="neumo-card p-3 transition-all flex items-center justify-between gap-3 group active:scale-[0.99]"
             >
               {/* Left Column: Host Avatar & Rank Details */}
               <div className="flex items-center gap-2.5 min-w-0">
-                <div className="w-11 h-11 rounded-full bg-[#182030] border border-white/10 overflow-hidden shrink-0 flex items-center justify-center">
+                <div className="w-11 h-11 rounded-full neumo-inset overflow-hidden shrink-0 flex items-center justify-center p-0.5">
                   <img
                     src={lobby.hostAvatar}
                     alt={lobby.hostNickname}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                    className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = "none";
                     }}
@@ -161,7 +161,7 @@ export const QuickMatchList: React.FC<QuickMatchListProps> = ({ currentUser }) =
                     className={`font-mono font-bold px-1.5 py-0.2 rounded ${
                       isAlmostFull
                         ? "bg-amber-500/15 text-amber-300 border border-amber-500/30"
-                        : "bg-white/5 text-slate-300 border border-white/10"
+                        : "neumo-inset text-slate-300 px-2 py-0.5 rounded-md"
                     }`}
                   >
                     {lobby.slotsFilled}/{lobby.totalSlots}
@@ -169,20 +169,20 @@ export const QuickMatchList: React.FC<QuickMatchListProps> = ({ currentUser }) =
                 </div>
 
                 {/* Middle Row: Missing Lane Tag */}
-                <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#182030] border border-white/5 text-[10px] text-cyan-300 font-bold">
+                <div className="flex items-center gap-1 px-2 py-0.5 rounded-full neumo-btn text-[10px] text-cyan-300 font-bold border border-cyan-500/20">
                   <img src={lobby.laneIcon} alt={lobby.neededRole} className="w-3 h-3 object-contain" />
                   <span>{lobby.neededRoleLabel}</span>
                 </div>
 
-                {/* Bottom Row: Join Action Button */}
+                {/* Bottom Row: Join Action Button with Liquid Glass */}
                 <button
                   type="button"
                   disabled={isJoined}
                   onClick={() => handleJoin(lobby.id)}
-                  className={`text-[11px] font-bold px-3 py-1 rounded-lg transition-all active:scale-95 cursor-pointer flex items-center gap-1 ${
+                  className={`text-[11px] font-bold px-3 py-1 rounded-xl transition-all active:scale-95 cursor-pointer flex items-center gap-1 ${
                     isJoined
                       ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"
-                      : "bg-white/10 hover:bg-white/20 text-white border border-white/10"
+                      : "liquid-glass hover:brightness-110 text-white"
                   }`}
                 >
                   {isJoined ? (
