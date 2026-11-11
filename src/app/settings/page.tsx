@@ -255,7 +255,7 @@ export default function SettingsPage() {
                   onClick={() => handleThemeChange(th.id)}
                   className={`p-2.5 rounded-xl border text-left transition-all ${
                     isSelected
-                      ? "bg-[#182030] border-amber-400/80 shadow-[0_0_12px_rgba(245,158,11,0.2)]"
+                      ? "bg-[#182030] border-white/40 text-white shadow-sm"
                       : "bg-[#090D14] border-white/5 hover:border-white/15 text-slate-400"
                   }`}
                 >

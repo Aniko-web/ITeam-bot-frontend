@@ -176,7 +176,7 @@ export default function KarmaPage() {
             }}
             className={`py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 border transition-all ${
               feedbackType === "endorsement"
-                ? "bg-emerald-500/20 border-emerald-500 text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.3)]"
+                ? "bg-emerald-500/15 border-emerald-500/50 text-emerald-300 shadow-sm"
                 : "bg-[#0B0E14] border-white/5 text-slate-400"
             }`}
           >
@@ -193,7 +193,7 @@ export default function KarmaPage() {
             }}
             className={`py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 border transition-all ${
               feedbackType === "report"
-                ? "bg-rose-500/20 border-rose-500 text-rose-300 shadow-[0_0_15px_rgba(244,63,94,0.3)]"
+                ? "bg-rose-500/15 border-rose-500/50 text-rose-300 shadow-sm"
                 : "bg-[#0B0E14] border-white/5 text-slate-400"
             }`}
           >
@@ -211,7 +211,7 @@ export default function KarmaPage() {
             placeholder="e.g. 102"
             value={targetId}
             onChange={(e) => setTargetId(e.target.value)}
-            className="w-full bg-[#0B0E14] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-white focus:outline-none focus:border-cyan-500 mt-1"
+            className="w-full bg-[#0B0E14] border border-white/10 rounded-xl px-3 py-2 text-xs font-mono font-bold text-white focus:outline-none focus:border-white/30 mt-1"
           />
         </div>
 
@@ -253,13 +253,13 @@ export default function KarmaPage() {
             placeholder="Brief reason..."
             value={comment}
             onChange={(e) => setComment(e.target.value)}
-            className="w-full bg-[#0B0E14] border border-white/10 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-500 mt-1"
+            className="w-full bg-[#0B0E14] border border-white/10 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-white/30 mt-1"
           />
         </div>
 
         {statusMessage && (
-          <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs font-semibold flex items-center gap-2">
-            <CheckCircle className="w-4 h-4 text-cyan-400 shrink-0" />
+          <div className="p-2.5 rounded-xl bg-white/10 border border-white/20 text-white text-xs font-semibold flex items-center gap-2">
+            <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
             <span>{statusMessage}</span>
           </div>
         )}
@@ -269,8 +269,8 @@ export default function KarmaPage() {
           disabled={submitting}
           className={`w-full py-3 rounded-xl font-extrabold text-xs tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer ${
             feedbackType === "endorsement"
-              ? "bg-emerald-500 hover:bg-emerald-400 text-black shadow-[0_0_15px_rgba(16,185,129,0.4)]"
-              : "bg-rose-500 hover:bg-rose-400 text-white shadow-[0_0_15px_rgba(244,63,94,0.4)]"
+              ? "bg-white hover:bg-slate-200 text-black shadow-sm"
+              : "bg-rose-600 hover:bg-rose-500 text-white shadow-sm"
           }`}
         >
           <Send className="w-4 h-4" />

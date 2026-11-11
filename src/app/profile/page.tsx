@@ -216,7 +216,7 @@ export default function ProfilePage() {
   if (loading || !profile) {
     return (
       <div className="py-24 text-center flex flex-col items-center justify-center gap-3">
-        <div className="w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-2 border-white/60 border-t-transparent rounded-full animate-spin" />
         <span className="text-xs text-slate-400 font-mono">Yuklanmoqda...</span>
       </div>
     );
@@ -248,7 +248,7 @@ export default function ProfilePage() {
               triggerHaptic("light");
             }}
             className={`px-2.5 py-0.5 rounded-lg text-xs font-bold transition-all ${
-              lang === "uz" ? "liquid-pill-active text-cyan-200 shadow-sm" : "text-slate-400 hover:text-white"
+              lang === "uz" ? "liquid-pill-active text-white shadow-sm" : "text-slate-400 hover:text-white"
             }`}
           >
             UZ
@@ -260,7 +260,7 @@ export default function ProfilePage() {
               triggerHaptic("light");
             }}
             className={`px-2.5 py-0.5 rounded-lg text-xs font-bold transition-all ${
-              lang === "ru" ? "liquid-pill-active text-cyan-200 shadow-sm" : "text-slate-400 hover:text-white"
+              lang === "ru" ? "liquid-pill-active text-white shadow-sm" : "text-slate-400 hover:text-white"
             }`}
           >
             RU
@@ -272,7 +272,7 @@ export default function ProfilePage() {
               triggerHaptic("light");
             }}
             className={`px-2.5 py-0.5 rounded-lg text-xs font-bold transition-all ${
-              lang === "en" ? "liquid-pill-active text-cyan-200 shadow-sm" : "text-slate-400 hover:text-white"
+              lang === "en" ? "liquid-pill-active text-white shadow-sm" : "text-slate-400 hover:text-white"
             }`}
           >
             EN
@@ -299,7 +299,7 @@ export default function ProfilePage() {
       <div className="neumo-card p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl neumo-inset flex items-center justify-center">
-            <Wallet className="w-5 h-5 text-amber-400 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]" />
+            <Wallet className="w-5 h-5 text-amber-400" />
           </div>
           <div>
             <div className="flex items-center gap-1.5">
@@ -332,7 +332,7 @@ export default function ProfilePage() {
         {/* MLBB Identity */}
         <div>
           <label className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5 mb-2.5">
-            <Gamepad2 className="w-3.5 h-3.5 text-cyan-400" />
+            <Gamepad2 className="w-3.5 h-3.5 text-slate-300" />
             In-Game MLBB Identity
           </label>
           <div className="flex flex-col gap-2.5">
@@ -350,7 +350,7 @@ export default function ProfilePage() {
                   }}
                   required
                   placeholder="e.g. 78491032"
-                  className="w-full neumo-inset rounded-xl px-3 py-2 text-xs font-mono font-semibold text-white focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-all mt-1"
+                  className="w-full neumo-inset rounded-xl px-3 py-2 text-xs font-mono font-semibold text-white focus:outline-none focus:border-white/30 transition-all mt-1"
                 />
               </div>
               <div>
@@ -365,7 +365,7 @@ export default function ProfilePage() {
                   }}
                   required
                   placeholder="e.g. 2048"
-                  className="w-full neumo-inset rounded-xl px-3 py-2 text-xs font-mono font-semibold text-white focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-all mt-1"
+                  className="w-full neumo-inset rounded-xl px-3 py-2 text-xs font-mono font-semibold text-white focus:outline-none focus:border-white/30 transition-all mt-1"
                 />
               </div>
             </div>
@@ -375,18 +375,18 @@ export default function ProfilePage() {
               type="button"
               onClick={handleLookupNickname}
               disabled={fetchingNickname}
-              className="w-full py-2.5 px-3.5 liquid-glass hover:brightness-110 rounded-xl text-cyan-200 text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer active:scale-98 shadow-sm"
+              className="w-full py-2.5 px-3.5 liquid-glass hover:brightness-110 rounded-xl text-white text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer active:scale-98 shadow-sm"
             >
               {fetchingNickname ? (
                 <>
-                  <Clock className="w-3.5 h-3.5 animate-spin text-cyan-300" />
+                  <Clock className="w-3.5 h-3.5 animate-spin text-slate-300" />
                   <span>
                     {lang === "uz" ? "Serverdan qidirilmoqda..." : lang === "ru" ? "Поиск ника..." : "Fetching Nickname..."}
                   </span>
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-3.5 h-3.5 text-cyan-400 drop-shadow-[0_0_6px_rgba(56,189,248,0.7)]" />
+                  <Sparkles className="w-3.5 h-3.5 text-slate-300" />
                   <span>
                     {lang === "uz"
                       ? "⚡ ID orqali Nickname ni avtomatik olish"
@@ -437,7 +437,7 @@ export default function ProfilePage() {
                 onChange={(e) => setNickname(e.target.value)}
                 required
                 placeholder="MLBB nicknamingizni kiriting"
-                className="w-full neumo-inset rounded-xl px-3 py-2 text-xs font-semibold text-white focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-all"
+                className="w-full neumo-inset rounded-xl px-3 py-2 text-xs font-semibold text-white focus:outline-none focus:border-white/30 transition-all"
               />
             </div>
           </div>
@@ -480,7 +480,7 @@ export default function ProfilePage() {
               <select
                 value={currentRank}
                 onChange={(e) => setCurrentRank(e.target.value as MLBB_Rank)}
-                className="w-full neumo-inset rounded-xl px-3 py-2 text-xs font-semibold text-white focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-all appearance-none cursor-pointer"
+                className="w-full neumo-inset rounded-xl px-3 py-2 text-xs font-semibold text-white focus:outline-none focus:border-white/30 transition-all appearance-none cursor-pointer"
               >
                 {ALL_RANKS.map((rk) => (
                   <option key={rk} value={rk} className="bg-[#0e141f] text-white">
@@ -499,7 +499,7 @@ export default function ProfilePage() {
               max={999}
               value={currentStars}
               onChange={(e) => setCurrentStars(Number(e.target.value))}
-              className="w-full neumo-inset rounded-xl px-3 py-2 text-xs font-mono font-semibold text-white focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-all mt-1"
+              className="w-full neumo-inset rounded-xl px-3 py-2 text-xs font-mono font-semibold text-white focus:outline-none focus:border-white/30 transition-all mt-1"
             />
           </div>
         </div>
@@ -507,7 +507,7 @@ export default function ProfilePage() {
         {/* Schedule */}
         <div>
           <label className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5 mb-1">
-            <Clock className="w-3.5 h-3.5 text-cyan-400" />
+            <Clock className="w-3.5 h-3.5 text-slate-400" />
             Preferred Playtime Schedule
           </label>
           <input
@@ -515,7 +515,7 @@ export default function ProfilePage() {
             value={schedule}
             onChange={(e) => setSchedule(e.target.value)}
             placeholder="e.g. 20:00 - 00:00 UTC+5"
-            className="w-full neumo-inset rounded-xl px-3 py-2 text-xs font-semibold text-white focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-all"
+            className="w-full neumo-inset rounded-xl px-3 py-2 text-xs font-semibold text-white focus:outline-none focus:border-white/30 transition-all"
           />
         </div>
 
@@ -540,13 +540,13 @@ export default function ProfilePage() {
                   onClick={() => changeTheme(theme.id as BackgroundThemeId)}
                   className={`p-2.5 rounded-xl text-left transition-all cursor-pointer ${
                     isSelected
-                      ? "neumo-card border border-amber-500/50 shadow-sm"
+                      ? "neumo-card border border-white/20 shadow-sm"
                       : "neumo-inset hover:border-white/10"
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold text-white">{theme.name}</span>
-                    {isSelected && <Check className="w-3.5 h-3.5 text-amber-400 stroke-[3]" />}
+                    {isSelected && <Check className="w-3.5 h-3.5 text-white stroke-[3]" />}
                   </div>
                   <span className="text-[10px] text-slate-400 block mt-0.5">{theme.desc}</span>
                 </button>
@@ -563,8 +563,8 @@ export default function ProfilePage() {
               disabled={saving}
               className={`w-full py-3 rounded-2xl font-black text-xs tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer ${
                 savedSuccess
-                  ? "bg-emerald-500 text-black shadow-[0_0_20px_rgba(16,185,129,0.7)]"
-                  : "bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 hover:brightness-110 text-black shadow-[0_0_20px_rgba(56,189,248,0.4)] active:scale-98"
+                  ? "bg-emerald-500 text-black shadow-md"
+                  : "bg-white hover:bg-slate-200 text-black shadow-lg active:scale-98"
               }`}
             >
               {savedSuccess ? (

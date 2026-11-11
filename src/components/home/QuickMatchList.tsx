@@ -101,7 +101,7 @@ export const QuickMatchList: React.FC<QuickMatchListProps> = ({ currentUser }) =
       {/* Section Header */}
       <div className="flex items-center justify-between px-0.5">
         <div className="flex items-center gap-2">
-          <span className="w-1.5 h-3.5 rounded-full bg-cyan-400" />
+          <span className="w-1.5 h-3.5 rounded-full bg-white shadow-sm" />
           <h2 className="text-xs font-black uppercase tracking-wider text-slate-200">
             Tavsiya Etilgan Lobbilar (Quick Match)
           </h2>
@@ -169,7 +169,7 @@ export const QuickMatchList: React.FC<QuickMatchListProps> = ({ currentUser }) =
                 </div>
 
                 {/* Middle Row: Missing Lane Tag */}
-                <div className="flex items-center gap-1 px-2 py-0.5 rounded-full neumo-btn text-[10px] text-cyan-300 font-bold border border-cyan-500/20">
+                <div className="flex items-center gap-1 px-2 py-0.5 rounded-full neumo-btn text-[10px] text-slate-300 font-semibold border border-white/10">
                   <img src={lobby.laneIcon} alt={lobby.neededRole} className="w-3 h-3 object-contain" />
                   <span>{lobby.neededRoleLabel}</span>
                 </div>

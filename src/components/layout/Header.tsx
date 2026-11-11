@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({ user, onBalanceUpdate }) => {
                   </span>
                 )}
               </div>
-              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-[#090D14] shadow-[0_0_6px_rgba(16,185,129,0.8)]" />
+              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-[#090D14]" />
             </div>
 
             <div className="flex flex-col text-left">
@@ -69,7 +69,7 @@ export const Header: React.FC<HeaderProps> = ({ user, onBalanceUpdate }) => {
                 </span>
               </div>
               <div className="flex items-center gap-1">
-                <span className="text-[10px] font-mono text-cyan-300/90 font-medium">
+                <span className="text-[10px] font-mono text-slate-400 font-medium">
                   {user?.current_rank || "Mythic"}
                 </span>
                 <span className="text-[9px] text-slate-500">•</span>
@@ -89,7 +89,7 @@ export const Header: React.FC<HeaderProps> = ({ user, onBalanceUpdate }) => {
               className="flex items-center gap-1 px-2.5 py-1 rounded-full neumo-btn text-[11px] font-bold text-slate-300 hover:text-white transition-all cursor-pointer"
               title="Tilni almashtirish"
             >
-              <Globe className="w-3 h-3 text-cyan-400" />
+              <Globe className="w-3 h-3 text-slate-400" />
               <span className="uppercase font-mono">{language}</span>
             </button>
 
@@ -107,9 +107,9 @@ export const Header: React.FC<HeaderProps> = ({ user, onBalanceUpdate }) => {
             </button>
 
             {/* IStars Balance Capsule */}
-            <div className="flex items-center neumo-btn rounded-full pl-2.5 pr-1 py-1 gap-1.5 shadow-sm border border-amber-500/20">
+            <div className="flex items-center neumo-btn rounded-full pl-2.5 pr-1 py-1 gap-1.5 shadow-sm border border-white/10">
               <div className="flex items-center gap-1">
-                <Wallet className="w-3.5 h-3.5 text-amber-400 drop-shadow-[0_0_6px_rgba(251,191,36,0.6)]" />
+                <Wallet className="w-3.5 h-3.5 text-amber-400" />
                 <span className="text-xs font-mono font-black text-amber-300 tracking-tight">
                   {balance}
                 </span>
@@ -123,7 +123,7 @@ export const Header: React.FC<HeaderProps> = ({ user, onBalanceUpdate }) => {
                   triggerHaptic("medium");
                   setShowTopup(true);
                 }}
-                className="w-5 h-5 rounded-full bg-gradient-to-tr from-amber-600 to-amber-400 hover:brightness-110 text-black flex items-center justify-center transition-transform active:scale-90 cursor-pointer shadow-[0_0_10px_rgba(245,158,11,0.5)]"
+                className="w-5 h-5 rounded-full bg-amber-500 hover:bg-amber-400 text-black flex items-center justify-center transition-transform active:scale-90 cursor-pointer shadow-sm"
                 title="Playdom orqali to‘ldirish"
               >
                 <Plus className="w-3 h-3 stroke-[3]" />

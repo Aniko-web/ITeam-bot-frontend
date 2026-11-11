@@ -45,12 +45,12 @@ export const BannerCarousel: React.FC<BannerCarouselProps> = ({ onOpenTopup, use
     {
       id: "playdom-partner",
       tag: "PLAYDOM XIZMATI",
-      tagColor: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
+      tagColor: "bg-white/10 text-white border-white/20",
       title: "Playdom Rasmiy Hamkor",
       subtitle: "Xavfsiz va tezkor to‘lovlar, eksklyuziv bonuslar va 24/7 yordam kafolati.",
       actionText: "Batafsil",
       bgGradient: "from-[#131D2E] via-[#111622] to-[#0A0E17]",
-      icon: <Gift className="w-8 h-8 text-cyan-400 opacity-90" />,
+      icon: <Gift className="w-8 h-8 text-white opacity-90" />,
       action: () => {
         triggerHaptic("light");
         window.open(`https://t.me/playdom_bot?start=user_${userId || "iteam"}`, "_blank");
@@ -123,7 +123,7 @@ export const BannerCarousel: React.FC<BannerCarouselProps> = ({ onOpenTopup, use
       >
         {/* Specular Liquid Top Light */}
         <div className="absolute top-0 left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
-        <div className="absolute top-0 right-0 w-36 h-36 bg-cyan-500/[0.05] rounded-full blur-2xl -mr-8 -mt-8 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-36 h-36 bg-white/[0.02] rounded-full blur-2xl -mr-8 -mt-8 pointer-events-none" />
 
         {/* Top Tag & Decorative Icon */}
         <div className="flex items-start justify-between relative z-10">
@@ -155,7 +155,7 @@ export const BannerCarousel: React.FC<BannerCarouselProps> = ({ onOpenTopup, use
             className="inline-flex items-center gap-1.5 text-xs font-bold text-white liquid-glass hover:brightness-110 px-3.5 py-1.5 rounded-xl transition-all active:scale-95 cursor-pointer shadow-sm"
           >
             <span>{currentBanner.actionText}</span>
-            <ChevronRight className="w-3.5 h-3.5 text-cyan-300" />
+            <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
           </button>
 
           <span className="text-[10px] text-slate-500 font-mono">

@@ -32,7 +32,7 @@ export const RankBadge: React.FC<RankBadgeProps> = ({
       case "mythic honor":
         return {
           icon: "/ranks/mythic_honor.png",
-          bg: "bg-[#182030] border-cyan-500/30 text-cyan-200",
+          bg: "bg-[#182030] border-sky-500/20 text-slate-200",
           label: "Mythic Honor",
         };
       case "mythic":

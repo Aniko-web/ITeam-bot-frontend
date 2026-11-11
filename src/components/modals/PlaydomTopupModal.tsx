@@ -168,7 +168,7 @@ export const PlaydomTopupModal: React.FC<PlaydomTopupModalProps> = ({
                   }}
                   className={`p-3 rounded-xl border text-left transition-all relative flex flex-col justify-between ${
                     isSelected
-                      ? "bg-[#182030] border-amber-500/60 shadow-[0_0_12px_rgba(245,158,11,0.2)]"
+                      ? "bg-[#182030] border-amber-500/60 shadow-sm"
                       : "bg-[#0B0F19] border-white/5 hover:border-white/15"
                   }`}
                 >

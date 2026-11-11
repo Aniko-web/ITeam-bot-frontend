@@ -26,47 +26,47 @@ export const RoleBadge: React.FC<RoleBadgeProps> = ({
       case "jungle":
         return {
           iconSrc: "/lanes/jungle.png",
-          color: "border-purple-500/30 text-purple-300 bg-purple-500/10",
-          selectedColor: "border-purple-500 bg-purple-500/25 text-white shadow-[0_0_12px_rgba(168,85,247,0.4)]",
+          color: "border-purple-500/20 text-purple-300 bg-purple-500/10",
+          selectedColor: "border-white/30 bg-purple-900/30 text-white shadow-sm",
           label: isRu ? "Лес" : "Jungler",
         };
       case "mid laner":
       case "mid":
         return {
           iconSrc: "/lanes/mid.png",
-          color: "border-blue-500/30 text-blue-300 bg-blue-500/10",
-          selectedColor: "border-blue-500 bg-blue-500/25 text-white shadow-[0_0_12px_rgba(59,130,246,0.4)]",
+          color: "border-blue-500/20 text-blue-300 bg-blue-500/10",
+          selectedColor: "border-white/30 bg-blue-900/30 text-white shadow-sm",
           label: isRu ? "Мид" : "Mid Laner",
         };
       case "exp laner":
       case "exp":
         return {
           iconSrc: "/lanes/exp.png",
-          color: "border-amber-500/30 text-amber-300 bg-amber-500/10",
-          selectedColor: "border-amber-500 bg-amber-500/25 text-white shadow-[0_0_12px_rgba(245,158,11,0.4)]",
+          color: "border-amber-500/20 text-amber-300 bg-amber-500/10",
+          selectedColor: "border-white/30 bg-amber-900/30 text-white shadow-sm",
           label: isRu ? "Опыт" : "Exp Laner",
         };
       case "gold laner":
       case "gold":
         return {
           iconSrc: "/lanes/gold.png",
-          color: "border-yellow-500/30 text-yellow-300 bg-yellow-500/10",
-          selectedColor: "border-yellow-500 bg-yellow-500/25 text-white shadow-[0_0_12px_rgba(234,179,8,0.4)]",
+          color: "border-yellow-500/20 text-yellow-300 bg-yellow-500/10",
+          selectedColor: "border-white/30 bg-yellow-900/30 text-white shadow-sm",
           label: isRu ? "Золото" : "Gold Laner",
         };
       case "roamer":
       case "roam":
         return {
           iconSrc: "/lanes/roam.png",
-          color: "border-emerald-500/30 text-emerald-300 bg-emerald-500/10",
-          selectedColor: "border-emerald-500 bg-emerald-500/25 text-white shadow-[0_0_12px_rgba(16,185,129,0.4)]",
+          color: "border-emerald-500/20 text-emerald-300 bg-emerald-500/10",
+          selectedColor: "border-white/30 bg-emerald-900/30 text-white shadow-sm",
           label: isRu ? "Роум" : "Roamer",
         };
       default:
         return {
           iconSrc: "/lanes/roam.png",
-          color: "border-cyan-500/30 text-cyan-300 bg-cyan-500/10",
-          selectedColor: "border-cyan-500 bg-cyan-500/25 text-white",
+          color: "border-white/15 text-slate-300 bg-white/5",
+          selectedColor: "border-white/30 bg-white/15 text-white shadow-sm",
           label: r,
         };
     }

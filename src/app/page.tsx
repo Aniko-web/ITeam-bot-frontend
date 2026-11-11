@@ -89,7 +89,7 @@ export default function HomePage() {
           <div className="neumo-card p-4 relative overflow-hidden flex flex-col gap-3.5">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-mono text-cyan-300 font-semibold">ID: {profile.mlbb_id} ({profile.server_id})</span>
+                <span className="text-xs font-mono text-slate-300 font-semibold">ID: {profile.mlbb_id} ({profile.server_id})</span>
                 <span className="text-slate-600">•</span>
                 <span className="text-xs text-slate-300 font-medium">{profile.playtime_schedule}</span>
               </div>
@@ -100,12 +100,12 @@ export default function HomePage() {
                 onClick={handleToggleLFG}
                 className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold transition-all border cursor-pointer ${
                   profile.is_lfg_active
-                    ? "liquid-glass text-emerald-300 border-emerald-500/40 shadow-[0_0_12px_rgba(16,185,129,0.3)]"
+                    ? "liquid-glass text-emerald-400 border-emerald-500/30"
                     : "neumo-btn border-white/5 text-slate-400"
                 }`}
               >
                 <Radio
-                  className={`w-3 h-3 ${profile.is_lfg_active ? "text-emerald-400 animate-pulse" : ""}`}
+                  className={`w-3 h-3 ${profile.is_lfg_active ? "text-emerald-400" : ""}`}
                 />
                 <span>{profile.is_lfg_active ? "LFG: ACTIVE" : "LFG: IDLE"}</span>
               </button>
@@ -145,7 +145,7 @@ export default function HomePage() {
             className="neumo-card p-3.5 rounded-2xl flex flex-col justify-between transition-all group active:scale-[0.98]"
           >
             <div className="w-9 h-9 rounded-xl neumo-inset flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
-              <Swords className="w-4 h-4 text-rose-400 drop-shadow-[0_0_6px_rgba(244,63,94,0.5)]" />
+              <Swords className="w-4 h-4 text-rose-400" />
             </div>
             <div>
               <h3 className="font-bold text-white text-xs">Scrim Finder</h3>
@@ -166,7 +166,7 @@ export default function HomePage() {
             className="neumo-card p-3.5 rounded-2xl flex flex-col justify-between transition-all group active:scale-[0.98]"
           >
             <div className="w-9 h-9 rounded-xl neumo-inset flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
-              <Shield className="w-4 h-4 text-purple-400 drop-shadow-[0_0_6px_rgba(168,85,247,0.5)]" />
+              <Shield className="w-4 h-4 text-purple-400" />
             </div>
             <div>
               <h3 className="font-bold text-white text-xs">Jamoalar (Teams)</h3>
@@ -187,7 +187,7 @@ export default function HomePage() {
             className="neumo-card p-3.5 rounded-2xl flex flex-col justify-between transition-all group active:scale-[0.98]"
           >
             <div className="w-9 h-9 rounded-xl neumo-inset flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
-              <Flame className="w-4 h-4 text-amber-400 drop-shadow-[0_0_6px_rgba(251,191,36,0.5)]" />
+              <Flame className="w-4 h-4 text-amber-400" />
             </div>
             <div>
               <h3 className="font-bold text-white text-xs">5v5 Custom PvP</h3>
@@ -211,7 +211,7 @@ export default function HomePage() {
             className="neumo-card p-3.5 rounded-2xl flex flex-col justify-between transition-all text-left group active:scale-[0.98] cursor-pointer"
           >
             <div className="w-9 h-9 rounded-xl neumo-inset flex items-center justify-center mb-2.5 group-hover:scale-105 transition-transform">
-              <Trophy className="w-4 h-4 text-amber-400 drop-shadow-[0_0_6px_rgba(251,191,36,0.5)]" />
+              <Trophy className="w-4 h-4 text-amber-400" />
             </div>
             <div>
               <h3 className="font-bold text-white text-xs">Playdom Top-up</h3>

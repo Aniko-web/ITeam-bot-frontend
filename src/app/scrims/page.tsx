@@ -106,7 +106,7 @@ export default function ScrimsPage() {
             setShowCreateModal(true);
             triggerHaptic("medium");
           }}
-          className="px-3 py-1.5 bg-rose-500 hover:bg-rose-400 text-white text-xs font-extrabold rounded-xl flex items-center gap-1 shadow-[0_0_15px_rgba(244,63,94,0.4)] transition-all cursor-pointer"
+          className="px-3.5 py-1.5 bg-white hover:bg-slate-200 text-black text-xs font-extrabold rounded-xl flex items-center gap-1 shadow-sm transition-all cursor-pointer"
         >
           <Plus className="w-3.5 h-3.5 stroke-[3]" />
           <span>POST SCRIM</span>
@@ -129,10 +129,10 @@ export default function ScrimsPage() {
                 key={s.id}
                 href={`/scrims/${s.id}`}
                 onClick={() => triggerHaptic("light")}
-                className={`glass-panel p-4 rounded-2xl border transition-all card-hover flex flex-col gap-3 group ${
+                className={`neumo-card p-4 transition-all card-hover flex flex-col gap-3 group ${
                   isReadyCheck
-                    ? "border-cyan-500/50 shadow-[0_0_20px_rgba(0,229,255,0.15)]"
-                    : "border-white/10 hover:border-white/20"
+                    ? "border-amber-500/40"
+                    : "hover:border-white/20"
                 }`}
               >
                 {/* Status & Format */}
@@ -147,7 +147,7 @@ export default function ScrimsPage() {
                   <span
                     className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${
                       isReadyCheck
-                        ? "bg-cyan-500/20 border-cyan-500 text-cyan-300 animate-pulse"
+                        ? "bg-amber-500/20 border-amber-500/40 text-amber-300"
                         : s.status === "open"
                         ? "bg-emerald-500/20 border-emerald-500 text-emerald-300"
                         : "bg-purple-500/20 border-purple-500 text-purple-300"
@@ -178,9 +178,9 @@ export default function ScrimsPage() {
 
                 {/* Ready Check Progress if active */}
                 {isReadyCheck && (
-                  <div className="p-2.5 bg-[#0B0E14] border border-cyan-500/30 rounded-xl flex items-center justify-between">
-                    <span className="text-xs font-bold text-cyan-300 flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-cyan-400 animate-spin" />
+                  <div className="p-2.5 neumo-inset rounded-xl flex items-center justify-between">
+                    <span className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5 text-slate-300 animate-spin" />
                       10-Player Confirmation
                     </span>
                     <span className="text-xs font-mono font-extrabold text-white">
@@ -196,7 +196,7 @@ export default function ScrimsPage() {
                     <span>{new Date(s.target_time).toLocaleString()}</span>
                   </div>
 
-                  <div className="flex items-center gap-1 text-cyan-400 font-bold text-xs">
+                  <div className="flex items-center gap-1 text-white font-bold text-xs">
                     <span>Enter Hub</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>

@@ -46,7 +46,7 @@ export default function PvPLobbyIndexPage() {
           />
           <button
             type="submit"
-            className="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-black text-xs font-black rounded-xl tracking-wider shadow-[0_0_15px_rgba(245,158,11,0.3)] transition-all cursor-pointer"
+            className="px-4 py-2.5 bg-white hover:bg-slate-200 text-black text-xs font-black rounded-xl tracking-wider shadow-sm transition-all cursor-pointer"
           >
             JOIN LOBBY
           </button>

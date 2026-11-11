@@ -50,7 +50,7 @@ export const KarmaMeter: React.FC<KarmaMeterProps> = ({ score, showDetails = fal
         <div className="flex items-center justify-between text-[11px] text-slate-400 mt-1">
           <span>Anti-Troll Shield Active</span>
           <span className="flex items-center gap-1 text-slate-300">
-            <Award className="w-3 h-3 text-cyan-400" />
+            <Award className="w-3 h-3 text-amber-400" />
             3-Report False-Report Guard
           </span>
         </div>

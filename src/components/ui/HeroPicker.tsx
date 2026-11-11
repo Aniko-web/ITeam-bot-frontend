@@ -101,7 +101,7 @@ export const HeroPicker: React.FC<HeroPickerProps> = ({
       {/* Top Header & Slot Count */}
       <div className="flex items-center justify-between">
         <label className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+          <Sparkles className="w-3.5 h-3.5 text-slate-300" />
           <span>
             {lang === "uz"
               ? "Asosiy qahramonlar (Max 3 ta)"
@@ -114,7 +114,7 @@ export const HeroPicker: React.FC<HeroPickerProps> = ({
         <span
           className={`text-xs font-mono font-bold px-2 py-0.5 rounded-full border ${
             selectedHeroes.length === 3
-              ? "bg-cyan-500/20 border-cyan-500 text-cyan-300"
+              ? "bg-white/10 border-white/25 text-white"
               : "bg-surface border-white/10 text-slate-400"
           }`}
         >
@@ -124,19 +124,19 @@ export const HeroPicker: React.FC<HeroPickerProps> = ({
 
       {/* Selected Heroes Active Badges */}
       {selectedHeroes.length > 0 && (
-        <div className="flex items-center gap-2 flex-wrap p-2.5 bg-[#0B0E14] border border-cyan-500/30 rounded-xl">
+        <div className="flex items-center gap-2 flex-wrap p-2.5 neumo-inset rounded-xl">
           {selectedHeroes.map((name) => {
             const heroObj = MLBB_HEROES.find((h) => h.name.en.toLowerCase() === name.toLowerCase());
             return (
               <div
                 key={name}
-                className="flex items-center gap-1.5 px-2.5 py-1 bg-cyan-500/15 border border-cyan-500/40 rounded-lg text-white text-xs font-bold"
+                className="flex items-center gap-1.5 px-2.5 py-1 bg-white/10 border border-white/20 rounded-lg text-white text-xs font-bold"
               >
                 {heroObj && (
                   <img
                     src={heroObj.image}
                     alt={name}
-                    className="w-4 h-4 rounded-full object-cover border border-cyan-400/50"
+                    className="w-4 h-4 rounded-full object-cover border border-white/30"
                   />
                 )}
                 <span>{heroObj ? getTranslatedName(heroObj) : name}</span>
@@ -172,7 +172,7 @@ export const HeroPicker: React.FC<HeroPickerProps> = ({
             }
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-[#0B0E14] border border-white/10 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white focus:outline-none focus:border-cyan-500 transition-colors"
+            className="w-full bg-[#0B0E14] border border-white/10 rounded-xl pl-8 pr-3 py-1.5 text-xs text-white focus:outline-none focus:border-white/30 transition-colors"
           />
         </div>
 
@@ -187,7 +187,7 @@ export const HeroPicker: React.FC<HeroPickerProps> = ({
               }}
               className={`px-2.5 py-1 rounded-full border whitespace-nowrap transition-all cursor-pointer flex items-center gap-1.5 ${
                 selectedLane === lane
-                  ? "bg-cyan-500/20 text-cyan-300 border-cyan-500/50 font-bold"
+                  ? "bg-white/15 text-white border-white/40 font-bold shadow-sm"
                   : "bg-surface text-slate-400 border-white/5 hover:border-white/20"
               }`}
             >
@@ -216,13 +216,13 @@ export const HeroPicker: React.FC<HeroPickerProps> = ({
               onClick={() => toggleHero(hero)}
               className={`relative rounded-xl border p-2 flex flex-col items-center text-center transition-all duration-200 cursor-pointer overflow-hidden ${
                 isSelected
-                  ? "bg-cyan-500/20 border-cyan-400 shadow-[0_0_15px_rgba(0,229,255,0.35)] scale-[1.02]"
+                  ? "bg-white/10 border-white/40 scale-[1.02] shadow-md"
                   : "bg-[#0B0E14] border-white/10 hover:border-white/25 active:scale-95"
               }`}
             >
               {/* Checkmark Tag */}
               {isSelected && (
-                <div className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-cyan-500 text-black flex items-center justify-center shadow-md">
+                <div className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-white text-black flex items-center justify-center shadow-md">
                   <Check className="w-3 h-3 stroke-[3]" />
                 </div>
               )}
@@ -253,7 +253,7 @@ export const HeroPicker: React.FC<HeroPickerProps> = ({
                     className="w-2.5 h-2.5 object-contain opacity-80"
                   />
                 )}
-                <span className="text-[8px] uppercase tracking-wider font-semibold text-cyan-400/80 truncate">
+                <span className="text-[8px] uppercase tracking-wider font-semibold text-slate-400 truncate">
                   {getLaneLabel(hero.lane)} • {hero.role.split('/')[0].trim()}
                 </span>
               </div>

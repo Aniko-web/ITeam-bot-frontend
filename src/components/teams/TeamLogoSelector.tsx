@@ -188,7 +188,7 @@ export const TeamLogoSelector: React.FC<TeamLogoSelectorProps> = ({
                   onClick={() => handleCardClick(logo)}
                   className={`relative flex flex-col items-center p-2.5 rounded-2xl border transition-all text-left group ${
                     isSelected
-                      ? "bg-[#182238] border-amber-400/80 shadow-[0_0_16px_rgba(245,158,11,0.25)] ring-1 ring-amber-400/50"
+                      ? "bg-[#182238] border-white/40 shadow-sm"
                       : "bg-[#111622] border-white/5 hover:border-white/20 hover:bg-[#151c2c]"
                   }`}
                 >
@@ -250,7 +250,7 @@ export const TeamLogoSelector: React.FC<TeamLogoSelectorProps> = ({
         <div className="flex flex-col space-y-3">
           <div className="p-4 rounded-2xl bg-[#111622] border border-white/10 flex flex-col items-center text-center">
             {uploadedImage ? (
-              <div className="relative w-24 h-24 rounded-2xl overflow-hidden border-2 border-amber-400 shadow-[0_0_20px_rgba(245,158,11,0.3)] mb-3">
+              <div className="relative w-24 h-24 rounded-2xl overflow-hidden border-2 border-white/30 shadow-md mb-3">
                 <img
                   src={uploadedImage}
                   alt="Custom Team Logo"

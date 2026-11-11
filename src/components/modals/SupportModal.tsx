@@ -28,8 +28,8 @@ export const SupportModal: React.FC<SupportModalProps> = ({ isOpen, onClose }) =
 
         {/* Header */}
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center">
-            <Headphones className="w-5 h-5 text-cyan-400" />
+          <div className="w-9 h-9 rounded-xl neumo-inset flex items-center justify-center">
+            <Headphones className="w-5 h-5 text-slate-300" />
           </div>
           <div>
             <h2 className="text-base font-extrabold tracking-tight">ITeam Qo‘llab-quvvatlash</h2>
@@ -44,20 +44,20 @@ export const SupportModal: React.FC<SupportModalProps> = ({ isOpen, onClose }) =
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => triggerHaptic("light")}
-            className="p-3 rounded-xl bg-[#0B0F19] border border-white/5 hover:border-cyan-500/40 transition-all flex items-center justify-between group"
+            className="p-3 rounded-xl bg-[#0B0F19] border border-white/5 hover:border-white/20 transition-all flex items-center justify-between group"
           >
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center">
-                <Send className="w-4 h-4 text-cyan-400" />
+              <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center">
+                <Send className="w-4 h-4 text-slate-300" />
               </div>
               <div>
-                <h4 className="text-xs font-bold text-white group-hover:text-cyan-400 transition-colors">
+                <h4 className="text-xs font-bold text-white group-hover:text-slate-200 transition-colors">
                   Telegram Operator
                 </h4>
                 <p className="text-[10px] text-slate-400">Jonli aloqa (o‘rtacha javob: 3 daqiqa)</p>
               </div>
             </div>
-            <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-400 transition-colors" />
+            <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-white transition-colors" />
           </a>
 
           <a

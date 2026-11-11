@@ -224,7 +224,7 @@ export default function PvPLobbyPage() {
           <div>
             <h2 className="text-base font-black text-white">{lobby.title}</h2>
             <div className="flex items-center gap-2 mt-1">
-              <span className="text-[10px] font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded">
+              <span className="text-[10px] font-mono text-slate-300 bg-white/10 px-2 py-0.5 rounded border border-white/10">
                 5v5 Custom Draft
               </span>
               <RankBadge rank={lobby.target_rank} />
@@ -360,7 +360,7 @@ export default function PvPLobbyPage() {
 
       {/* Custom Room Credentials Card */}
       {lobby.custom_room_id ? (
-        <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-950/40 to-slate-900 border border-amber-500/40 flex flex-col gap-2.5 shadow-[0_0_25px_rgba(245,158,11,0.2)]">
+        <div className="p-4 rounded-2xl bg-[#141A24] border border-amber-500/30 flex flex-col gap-2.5 shadow-md">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Key className="w-4 h-4 text-amber-400" />
@@ -368,7 +368,7 @@ export default function PvPLobbyPage() {
                 MLBB Custom Room Credentials
               </span>
             </div>
-            <span className="text-[10px] font-bold text-amber-300 bg-amber-500/20 px-2 py-0.5 rounded">
+            <span className="text-[10px] font-bold text-amber-300 bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 rounded">
               LOBBY ACTIVE
             </span>
           </div>
@@ -383,7 +383,7 @@ export default function PvPLobbyPage() {
               </div>
               <div className="flex items-center gap-2 mt-0.5">
                 <span className="text-xs text-slate-400">Password:</span>
-                <span className="font-mono font-black text-base text-cyan-300">
+                <span className="font-mono font-black text-base text-amber-300">
                   {lobby.custom_room_password}
                 </span>
               </div>
@@ -391,7 +391,7 @@ export default function PvPLobbyPage() {
 
             <button
               onClick={copyCreds}
-              className="p-2.5 bg-amber-500 hover:bg-amber-400 text-black font-bold rounded-lg transition-colors cursor-pointer"
+              className="p-2.5 bg-white hover:bg-slate-200 text-black font-bold rounded-lg transition-colors cursor-pointer shadow-sm"
             >
               {copiedKey ? <Check className="w-4 h-4 stroke-[3]" /> : <Copy className="w-4 h-4" />}
             </button>

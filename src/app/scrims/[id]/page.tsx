@@ -176,7 +176,7 @@ export default function ScrimDetailPage() {
         {/* Versus Teams */}
         <div className="grid grid-cols-5 items-center text-center my-1">
           <div className="col-span-2 flex flex-col items-center">
-            <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center font-mono font-black text-cyan-300 text-sm mb-1">
+            <div className="w-12 h-12 rounded-xl neumo-inset flex items-center justify-center font-mono font-black text-white text-sm mb-1">
               {scrim.host_team_tag || "HOST"}
             </div>
             <span className="text-xs font-black text-white">{scrim.host_team_name}</span>
@@ -207,15 +207,15 @@ export default function ScrimDetailPage() {
       </div>
 
       {/* Automated Ready Check System Banner */}
-      <div className="p-4 rounded-2xl bg-[#111722] border border-cyan-500/30 flex flex-col gap-3 shadow-[0_0_25px_rgba(0,229,255,0.1)]">
+      <div className="p-4 rounded-2xl neumo-card border border-white/10 flex flex-col gap-3 shadow-xl">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Clock className="w-4 h-4 text-cyan-400 animate-pulse" />
+            <Clock className="w-4 h-4 text-slate-300" />
             <span className="text-xs font-extrabold uppercase tracking-wide text-white">
               10-Player Ready Check
             </span>
           </div>
-          <span className="text-xs font-mono font-bold text-cyan-300">
+          <span className="text-xs font-mono font-bold text-white">
             {scrim.total_confirmed} / 10 Confirmed
           </span>
         </div>
@@ -226,7 +226,7 @@ export default function ScrimDetailPage() {
             <div
               key={i}
               className={`h-2 rounded-full transition-all duration-300 ${
-                i < scrim.total_confirmed ? "bg-cyan-400 shadow-[0_0_8px_rgba(0,229,255,0.8)]" : "bg-white/10"
+                i < scrim.total_confirmed ? "bg-white/90" : "bg-white/10"
               }`}
             />
           ))}
@@ -257,7 +257,7 @@ export default function ScrimDetailPage() {
         <div className="flex gap-2 mt-1">
           <button
             onClick={() => setShowReadyModal(true)}
-            className="flex-1 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-extrabold text-xs rounded-xl shadow-[0_0_15px_rgba(0,229,255,0.4)] flex items-center justify-center gap-1.5 cursor-pointer active:scale-98 transition-all"
+            className="flex-1 py-3 bg-white hover:bg-slate-200 text-black font-extrabold text-xs rounded-xl shadow-lg flex items-center justify-center gap-1.5 cursor-pointer active:scale-98 transition-all"
           >
             <CheckCircle2 className="w-4 h-4" />
             <span>CONFIRM READY / TASDIQLASH</span>
@@ -268,14 +268,14 @@ export default function ScrimDetailPage() {
             className="px-3 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-slate-300 text-xs font-bold transition-all cursor-pointer"
             title="Ping 10 Players via Bot"
           >
-            <Zap className="w-4 h-4 text-cyan-400" />
+            <Zap className="w-4 h-4 text-slate-300" />
           </button>
         </div>
       </div>
 
       {/* Room ID & Password Distribution */}
       {isAllReady ? (
-        <div className="p-4 rounded-2xl bg-gradient-to-br from-emerald-950/40 to-slate-900 border border-emerald-500/40 flex flex-col gap-3 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+        <div className="p-4 rounded-2xl bg-[#141A24] border border-emerald-500/30 flex flex-col gap-3 shadow-md">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Key className="w-4 h-4 text-emerald-400" />
@@ -299,7 +299,7 @@ export default function ScrimDetailPage() {
                 </div>
                 <div className="flex items-center gap-2 mt-0.5">
                   <span className="text-xs text-slate-400">Password:</span>
-                  <span className="font-mono font-black text-base text-cyan-300">
+                  <span className="font-mono font-black text-base text-amber-300">
                     {scrim.custom_room_password}
                   </span>
                 </div>

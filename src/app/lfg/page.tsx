@@ -272,7 +272,7 @@ export default function LFGPage() {
                             src={hObj.image}
                             alt={heroName}
                             title={heroName}
-                            className="w-5 h-5 rounded-full object-cover border border-cyan-400/50 shadow-sm"
+                            className="w-5 h-5 rounded-full object-cover border border-white/20 shadow-sm"
                           />
                         ) : (
                           <span
@@ -290,7 +290,7 @@ export default function LFGPage() {
                 {/* Footer: Playtime & Invite Action */}
                 <div className="flex items-center justify-between pt-2 border-t border-white/5">
                   <div className="flex items-center gap-1.5 text-[11px] text-slate-400">
-                    <Clock className="w-3.5 h-3.5 text-cyan-400" />
+                    <Clock className="w-3.5 h-3.5 text-slate-400" />
                     <span>{p.playtime_schedule}</span>
                   </div>
 
@@ -300,7 +300,7 @@ export default function LFGPage() {
                     className={`px-3.5 py-1.5 rounded-xl text-xs font-extrabold tracking-wide flex items-center gap-1.5 transition-all cursor-pointer ${
                       isInvited
                         ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 cursor-default"
-                        : "bg-cyan-500 hover:bg-cyan-400 text-black shadow-[0_0_15px_rgba(0,229,255,0.3)] active:scale-95"
+                        : "bg-white hover:bg-slate-200 text-black shadow-sm active:scale-95"
                     }`}
                   >
                     {isInvited ? (

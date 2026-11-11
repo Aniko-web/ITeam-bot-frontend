@@ -191,7 +191,7 @@ export default function TeamDetailPage() {
         <div className="flex items-start justify-between">
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono font-black text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 px-2 py-0.5 rounded">
+              <span className="text-xs font-mono font-black text-white bg-white/10 border border-white/20 px-2 py-0.5 rounded">
                 [{team.tag}]
               </span>
               <h2 className="text-lg font-black text-white">{team.name}</h2>
@@ -227,7 +227,7 @@ export default function TeamDetailPage() {
                 href={team.voice_link_secret}
                 target="_blank"
                 rel="noreferrer"
-                className="px-3 py-1.5 bg-emerald-500 text-black text-xs font-extrabold rounded-lg flex items-center gap-1 shadow-[0_0_12px_rgba(16,185,129,0.4)]"
+                className="px-3 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-extrabold rounded-lg flex items-center gap-1 shadow-sm transition-all"
               >
                 <span>Join Channel</span>
                 <ExternalLink className="w-3 h-3" />
@@ -249,8 +249,8 @@ export default function TeamDetailPage() {
       </div>
 
       {actionMessage && (
-        <div className="p-3 bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs font-bold rounded-xl flex items-center gap-2">
-          <CheckCircle className="w-4 h-4 text-cyan-400" />
+        <div className="p-3 bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-bold rounded-xl flex items-center gap-2">
+          <CheckCircle className="w-4 h-4 text-emerald-400" />
           <span>{actionMessage}</span>
         </div>
       )}
@@ -259,10 +259,10 @@ export default function TeamDetailPage() {
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
           <h3 className="text-xs font-black uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
-            <Users className="w-3.5 h-3.5 text-cyan-400" />
+            <Users className="w-3.5 h-3.5 text-slate-300" />
             Main Starters ({starters.length} / 5)
           </h3>
-          <span className="text-[10px] font-mono text-cyan-400">Competitive 5</span>
+          <span className="text-[10px] font-mono text-slate-400">Competitive 5</span>
         </div>
 
         <div className="flex flex-col gap-2">
@@ -337,9 +337,9 @@ export default function TeamDetailPage() {
 
       {/* Captain Admin Panel: Pending Applicants */}
       {pendingApplicants.length > 0 && (
-        <div className="p-3.5 bg-[#161E2E] border border-cyan-500/30 rounded-2xl flex flex-col gap-2.5">
-          <h4 className="text-xs font-black uppercase tracking-wider text-cyan-300 flex items-center gap-1.5">
-            <UserCheck className="w-4 h-4 text-cyan-400" />
+        <div className="p-3.5 neumo-card border border-white/10 rounded-2xl flex flex-col gap-2.5">
+          <h4 className="text-xs font-black uppercase tracking-wider text-white flex items-center gap-1.5">
+            <UserCheck className="w-4 h-4 text-slate-300" />
             Pending Roster Applications ({pendingApplicants.length})
           </h4>
 
@@ -380,7 +380,7 @@ export default function TeamDetailPage() {
       {/* Join Request Button */}
       <button
         onClick={handleApply}
-        className="w-full py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-extrabold rounded-xl shadow-[0_0_20px_rgba(0,229,255,0.4)] tracking-wide active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer mt-2"
+        className="w-full py-3.5 bg-white hover:bg-slate-200 text-black font-extrabold rounded-xl shadow-lg tracking-wide active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer mt-2"
       >
         <Users className="w-4 h-4" />
         <span>APPLY TO JOIN ROSTER</span>

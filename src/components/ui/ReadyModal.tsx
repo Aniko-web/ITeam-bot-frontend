@@ -53,13 +53,13 @@ export const ReadyModal: React.FC<ReadyModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="w-full max-w-sm bg-[#111722] border border-cyan-500/30 rounded-2xl p-5 shadow-[0_0_40px_rgba(0,229,255,0.2)] text-center relative overflow-hidden">
-        {/* Glow corner accent */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="w-full max-w-sm neumo-card p-5 border border-white/10 shadow-2xl text-center relative overflow-hidden">
+        {/* Clean Specular Top Highlight */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-[1.5px] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
 
-        <div className="w-12 h-12 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center mx-auto mb-3">
-          <Clock className="w-6 h-6 text-cyan-400 animate-pulse" />
+        <div className="w-12 h-12 rounded-full neumo-inset flex items-center justify-center mx-auto mb-3">
+          <Clock className="w-5 h-5 text-slate-300" />
         </div>
 
         <h3 className="text-lg font-bold text-white tracking-wide uppercase">
@@ -68,8 +68,8 @@ export const ReadyModal: React.FC<ReadyModalProps> = ({
         <p className="text-xs text-slate-400 mt-0.5">{matchTitle}</p>
 
         {/* Countdown Timer */}
-        <div className="my-5 py-3 px-4 bg-[#0B0E14] border border-white/10 rounded-xl inline-block mx-auto">
-          <span className="text-3xl font-mono font-black tracking-wider text-cyan-300">
+        <div className="my-5 py-3 px-4 neumo-inset rounded-xl inline-block mx-auto">
+          <span className="text-3xl font-mono font-black tracking-wider text-white">
             {timeString}
           </span>
           <p className="text-[10px] uppercase tracking-widest text-slate-400 mt-1">
@@ -123,7 +123,7 @@ export const ReadyModal: React.FC<ReadyModalProps> = ({
             <button
               onClick={handleConfirm}
               disabled={loading}
-              className="w-full py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-black font-extrabold rounded-xl shadow-[0_0_20px_rgba(0,229,255,0.4)] tracking-wide active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3.5 bg-white hover:bg-slate-200 text-black font-extrabold rounded-xl shadow-lg tracking-wide active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <CheckCircle2 className="w-5 h-5" />
               <span>{loading ? "CONFIRMING..." : "CONFIRM READY (TASDIQLASH)"}</span>

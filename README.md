@@ -56,3 +56,4 @@ npm run build
 2. **Environment Variables** bo‘limida:
    - `NEXT_PUBLIC_API_URL` = `https://api.yourdomain.com/api/v1`
 3. **Deploy** tugmasini bosing.
+
