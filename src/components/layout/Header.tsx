@@ -8,22 +8,27 @@ import { triggerHaptic } from "@/lib/telegram";
 import { PlaydomTopupModal } from "@/components/modals/PlaydomTopupModal";
 import { SupportModal } from "@/components/modals/SupportModal";
 import { useLanguage, Language } from "@/lib/i18n";
+import { useUser } from "@/context/UserContext";
 
 interface HeaderProps {
   user?: UserProfile | null;
   onBalanceUpdate?: (newBalance: number) => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ user, onBalanceUpdate }) => {
+export const Header: React.FC<HeaderProps> = ({ user: propUser, onBalanceUpdate }) => {
+  const { user: contextUser, updateUser } = useUser();
+  const user = propUser || contextUser;
+
   const [showTopup, setShowTopup] = useState(false);
   const [showSupport, setShowSupport] = useState(false);
   const [localBalance, setLocalBalance] = useState<number | null>(null);
   const { language, setLanguage } = useLanguage();
 
-  const balance = localBalance !== null ? localBalance : user?.istars_balance ?? 125;
+  const balance = localBalance !== null ? localBalance : user?.istars_balance ?? 140;
 
   const handleTopupSuccess = (newBalance: number) => {
     setLocalBalance(newBalance);
+    updateUser({ istars_balance: newBalance }).catch(() => {});
     if (onBalanceUpdate) {
       onBalanceUpdate(newBalance);
     }

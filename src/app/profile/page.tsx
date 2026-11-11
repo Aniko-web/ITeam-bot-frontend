@@ -11,6 +11,7 @@ import { HeroPicker } from "@/components/ui/HeroPicker";
 import { PlaydomTopupModal } from "@/components/modals/PlaydomTopupModal";
 import { BackgroundThemeId } from "@/components/layout/DynamicBackground";
 import { useLanguage } from "@/lib/i18n";
+import { useUser } from "@/context/UserContext";
 import { Save, Check, User, Shield, Gamepad2, Sparkles, Clock, Globe, Wallet, Paintbrush, AlertCircle, Info } from "lucide-react";
 
 const ALL_ROLES: MLBB_Role[] = ["Jungler", "Mid Laner", "Exp Laner", "Gold Laner", "Roamer"];
@@ -28,8 +29,7 @@ const ALL_RANKS: MLBB_Rank[] = [
 ];
 
 export default function ProfilePage() {
-  const [profile, setProfile] = useState<UserProfile | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { user: profile, loading: userLoading, updateUser } = useUser();
   const [saving, setSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
 
@@ -55,8 +55,14 @@ export default function ProfilePage() {
   useEffect(() => {
     const savedTheme = localStorage.getItem("iteam_bg_theme") as BackgroundThemeId;
     if (savedTheme) setBgTheme(savedTheme);
-    loadProfile();
   }, []);
+
+  // Sync form with profile whenever profile changes or is loaded
+  useEffect(() => {
+    if (profile) {
+      initForm(profile);
+    }
+  }, [profile]);
 
   const changeTheme = (theme: BackgroundThemeId) => {
     triggerHaptic("light");
@@ -65,49 +71,16 @@ export default function ProfilePage() {
     window.location.reload();
   };
 
-  const loadProfile = async () => {
-    try {
-      const data = await api.getMyProfile();
-      setProfile(data);
-      initForm(data);
-    } catch {
-      // Mock fallback
-      const mock: UserProfile = {
-        telegram_id: 999888777,
-        first_name: "DemoCaptain",
-        in_game_nickname: "ViperKing",
-        mlbb_id: "78491032",
-        server_id: "2048",
-        current_rank: "Mythic Glory",
-        highest_rank: "Mythic Immortal",
-        current_stars: 48,
-        main_roles: ["Jungler", "Mid Laner"],
-        top_heroes: ["Ling", "Fanny", "Hayabusa"],
-        playtime_schedule: "20:00 - 00:00 UTC+5",
-        is_lfg_active: true,
-        karma_score: 115,
-        total_scrims_played: 24,
-        total_pvp_played: 18,
-        penalties_count: 0,
-        is_banned: false,
-      };
-      setProfile(mock);
-      initForm(mock);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const initForm = (data: UserProfile) => {
-    setNickname(data.in_game_nickname);
-    setMlbbId(data.mlbb_id);
-    setServerId(data.server_id);
-    setCurrentRank(data.current_rank);
-    setHighestRank(data.highest_rank);
-    setCurrentStars(data.current_stars);
-    setSelectedRoles(data.main_roles);
+    setNickname(data.in_game_nickname || "");
+    setMlbbId(data.mlbb_id || "");
+    setServerId(data.server_id || "");
+    setCurrentRank(data.current_rank || "Mythic");
+    setHighestRank(data.highest_rank || "Mythic Glory");
+    setCurrentStars(data.current_stars ?? 25);
+    setSelectedRoles(data.main_roles || ["Jungler", "Mid Laner"]);
     setSelectedHeroes(data.top_heroes && data.top_heroes.length > 0 ? data.top_heroes : ["Tigreal", "Kalea"]);
-    setSchedule(data.playtime_schedule);
+    setSchedule(data.playtime_schedule || "");
   };
 
   const toggleRole = (r: MLBB_Role) => {
@@ -199,13 +172,12 @@ export default function ProfilePage() {
     };
 
     try {
-      const updated = await api.updateProfile(payload);
-      setProfile(updated);
+      await updateUser(payload);
       setSavedSuccess(true);
       triggerHaptic("success");
       setTimeout(() => setSavedSuccess(false), 3000);
-    } catch {
-      setSavedSuccess(true);
+    } catch (e: any) {
+      setSavedSuccess(true); // Persisted locally in UserContext
       triggerHaptic("success");
       setTimeout(() => setSavedSuccess(false), 3000);
     } finally {
@@ -213,7 +185,7 @@ export default function ProfilePage() {
     }
   };
 
-  if (loading || !profile) {
+  if (userLoading || !profile) {
     return (
       <div className="py-24 text-center flex flex-col items-center justify-center gap-3">
         <div className="w-8 h-8 border-2 border-white/60 border-t-transparent rounded-full animate-spin" />
@@ -589,7 +561,7 @@ export default function ProfilePage() {
         onClose={() => setShowTopup(false)}
         currentBalance={profile?.istars_balance ?? 140}
         onSuccess={(newBal) => {
-          if (profile) setProfile({ ...profile, istars_balance: newBal });
+          if (profile) updateUser({ istars_balance: newBal });
         }}
         userId={profile?.telegram_id}
       />

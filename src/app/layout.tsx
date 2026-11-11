@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@/styles/globals.css";
 import { TelegramProvider } from "@/components/telegram/TelegramProvider";
 import { LanguageProvider } from "@/lib/i18n";
+import { UserProvider } from "@/context/UserContext";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { DynamicBackground } from "@/components/layout/DynamicBackground";
 import { PageTransition } from "@/components/layout/PageTransition";
@@ -28,14 +29,16 @@ export default function RootLayout({
       <body className="bg-[#090D14] text-[#F8FAFC] min-h-screen antialiased flex flex-col selection:bg-amber-500 selection:text-black">
         <TelegramProvider>
           <LanguageProvider>
-            {/* Dynamic Background Engine (Deep Void, Minimal Slate, Canvas Particles) */}
-            <DynamicBackground />
+            <UserProvider>
+              {/* Dynamic Background Engine (Deep Void, Minimal Slate, Canvas Particles) */}
+              <DynamicBackground />
 
-            <div className="flex-1 max-w-md w-full mx-auto pb-28 flex flex-col">
-              <PageTransition>{children}</PageTransition>
-            </div>
+              <div className="flex-1 max-w-md w-full mx-auto pb-28 flex flex-col">
+                <PageTransition>{children}</PageTransition>
+              </div>
 
-            <BottomNav />
+              <BottomNav />
+            </UserProvider>
           </LanguageProvider>
         </TelegramProvider>
       </body>

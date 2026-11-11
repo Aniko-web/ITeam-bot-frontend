@@ -1,16 +1,42 @@
 import { getInitData } from "./telegram";
 import { UserProfile, Team, Scrim, PvPLobby, KarmaSummary } from "./types";
 
-function getApiBaseUrl(): string {
+export function getApiBaseUrl(): string {
+  if (typeof window !== "undefined") {
+    // 1. URL search param override (e.g. ?api_url=https://backend.alwaysdata.net)
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const queryApi = params.get("api_url");
+      if (queryApi && queryApi.trim()) {
+        const cleaned = queryApi.trim().replace(/\/+$/, "");
+        const formatted = cleaned.endsWith("/api/v1") ? cleaned : `${cleaned}/api/v1`;
+        localStorage.setItem("iteam_api_url", formatted);
+        return formatted;
+      }
+    } catch {}
+
+    // 2. LocalStorage override
+    try {
+      const stored = localStorage.getItem("iteam_api_url");
+      if (stored && stored.trim()) {
+        const cleaned = stored.trim().replace(/\/+$/, "");
+        return cleaned.endsWith("/api/v1") ? cleaned : `${cleaned}/api/v1`;
+      }
+    } catch {}
+  }
+
+  // 3. Environment Variable
   const envUrl = process.env.NEXT_PUBLIC_API_URL;
-  if (!envUrl) return "http://localhost:8000/api/v1";
-  const cleaned = envUrl.trim().replace(/\/+$/, "");
-  return cleaned.endsWith("/api/v1") ? cleaned : `${cleaned}/api/v1`;
+  if (envUrl && envUrl.trim()) {
+    const cleaned = envUrl.trim().replace(/\/+$/, "");
+    return cleaned.endsWith("/api/v1") ? cleaned : `${cleaned}/api/v1`;
+  }
+
+  return "http://localhost:8000/api/v1";
 }
 
-const API_BASE = getApiBaseUrl();
-
 async function fetcher<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
+  const apiBase = getApiBaseUrl();
   const initData = getInitData();
   const headers = new Headers(options.headers || {});
   headers.set("Content-Type", "application/json");
@@ -23,7 +49,7 @@ async function fetcher<T>(endpoint: string, options: RequestInit = {}): Promise<
   }
 
   try {
-    const res = await fetch(`${API_BASE}${endpoint}`, {
+    const res = await fetch(`${apiBase}${endpoint}`, {
       ...options,
       headers,
     });

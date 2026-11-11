@@ -13,62 +13,28 @@ import { KarmaMeter } from "@/components/ui/KarmaMeter";
 import { UserProfile } from "@/lib/types";
 import { api } from "@/lib/api";
 import { triggerHaptic } from "@/lib/telegram";
+import { useUser } from "@/context/UserContext";
 
 export default function HomePage() {
-  const [profile, setProfile] = useState<UserProfile | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { user: profile, loading, updateUser } = useUser();
   const [showTopupModal, setShowTopupModal] = useState(false);
-
-  useEffect(() => {
-    loadProfile();
-  }, []);
-
-  const loadProfile = async () => {
-    try {
-      const data = await api.getMyProfile();
-      setProfile(data);
-    } catch {
-      // Offline / dev fallback
-      setProfile({
-        telegram_id: 999888777,
-        first_name: "DemoCaptain",
-        in_game_nickname: "ViperKing",
-        mlbb_id: "78491032",
-        server_id: "2048",
-        current_rank: "Mythic Glory",
-        highest_rank: "Mythic Immortal",
-        current_stars: 54,
-        main_roles: ["Jungler", "Mid Laner"],
-        top_heroes: ["Tigreal", "Kalea", "Zilong"],
-        playtime_schedule: "20:00 - 00:00 UTC+5",
-        is_lfg_active: true,
-        karma_score: 115,
-        istars_balance: 140,
-        selected_background_id: "deep-void",
-        total_scrims_played: 24,
-        total_pvp_played: 18,
-        penalties_count: 0,
-        is_banned: false,
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleToggleLFG = async () => {
     triggerHaptic("medium");
     if (!profile) return;
     try {
       const updated = await api.toggleLFG();
-      setProfile(updated);
+      if (updated) {
+        updateUser(updated);
+      }
     } catch {
-      setProfile({ ...profile, is_lfg_active: !profile.is_lfg_active });
+      updateUser({ is_lfg_active: !profile.is_lfg_active }).catch(() => {});
     }
   };
 
   const handleBalanceUpdate = (newBalance: number) => {
     if (profile) {
-      setProfile({ ...profile, istars_balance: newBalance });
+      updateUser({ istars_balance: newBalance }).catch(() => {});
     }
   };
 
